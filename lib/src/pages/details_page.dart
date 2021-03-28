@@ -1,7 +1,9 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:lab_poc/src/models/card_list_model.dart';
 import 'package:lab_poc/src/models/card_model.dart';
+import 'package:provider/provider.dart';
 
 class DetailsPage extends StatelessWidget {
   final CardModel card;
@@ -10,48 +12,50 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text('Flutter Lab POC'),
-      ),
-      body: Container(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Column(
-              children: <Widget>[
-                Expanded(
-                  flex: 8,
-                  child: _content(context),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      Text(
-                        'Touch the card to see more info.',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.touch_app,
-                          color: Colors.black,
-                          size: 30,
-                        ),
-                      ),
-                    ],
+    return Consumer<CardListModel>(
+      builder: (context, cards, child) => Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          title: Text('Flutter Lab POC'),
+        ),
+        body: Container(
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Column(
+                children: <Widget>[
+                  Expanded(
+                    flex: 8,
+                    child: _content(context),
                   ),
-                ),
-              ],
-            )
-          ],
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Touch the card to see more info.',
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.touch_app,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

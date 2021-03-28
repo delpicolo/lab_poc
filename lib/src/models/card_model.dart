@@ -8,6 +8,7 @@ class CardModel {
   String imageUrl;
   List<String> printings;
   String id;
+
   CardModel({
     this.name,
     this.type,

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:lab_poc/src/models/card_list_model.dart';
 import 'package:lab_poc/src/models/card_model.dart';
 
 class CardRepository {
@@ -7,7 +8,7 @@ class CardRepository {
 
   CardRepository([Dio client]) : dio = client ?? Dio();
 
-  Future<List<CardModel>> fetch({int page = 1, int pageSize = 25}) async {
+  Future<CardListModel> fetch({int page = 1, int pageSize = 25}) async {
     Response response = await dio.get(
       url,
       queryParameters: {
@@ -16,12 +17,13 @@ class CardRepository {
       },
     );
 
-    if (response.statusCode != 200) return <CardModel>[];
+    if (response.statusCode != 200) return CardListModel();
 
-    final cards = <CardModel>[];
+    final CardListModel cardList = CardListModel();
     for (var card in response.data['cards']) {
-      cards.add(CardModel.fromJson(card as Map<String, dynamic>));
+      cardList.items.add(CardModel.fromJson(card as Map<String, dynamic>));
     }
-    return cards;
+
+    return cardList;
   }
 }
