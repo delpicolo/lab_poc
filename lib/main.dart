@@ -7,7 +7,7 @@ void main() => runApp(
       ChangeNotifierProvider(
         create: (_) => CardListModel(),
         child: MaterialApp(
-          // debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: false,
           theme: ThemeData.light(),
           home: MyApp(),
         ),

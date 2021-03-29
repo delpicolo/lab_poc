@@ -8,7 +8,10 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundComponent(assetImage: 'assets/images/login_background.png'),
+          BackgroundComponent(
+            assetImage: 'assets/images/login_background.jpg',
+            fit: BoxFit.cover,
+          ),
           Container(color: Colors.black.withOpacity(0.3)),
           LoginComponent(),
         ],

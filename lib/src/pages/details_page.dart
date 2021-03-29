@@ -12,14 +12,8 @@ class DetailsPage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
-            flex: 8,
-            child: CardComponent(),
-          ),
-          Expanded(
-            flex: 1,
-            child: InfoComponent(),
-          ),
+          Expanded(flex: 8, child: CardComponent()),
+          Expanded(flex: 1, child: InfoComponent()),
         ],
       ),
     );

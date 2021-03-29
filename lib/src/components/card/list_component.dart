@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:lab_poc/src/components/image_component.dart';
 import 'package:lab_poc/src/models/card_list_model.dart';
 import 'package:lab_poc/src/models/card_model.dart';
-import 'package:lab_poc/src/pages/details_page.dart';
 import 'package:provider/provider.dart';
 
 class ListCardsComponent extends StatelessWidget {
@@ -37,10 +36,6 @@ class ListCardsComponent extends StatelessWidget {
 
   _select(context, CardListModel cards, CardModel card) {
     cards.select(card.id);
-    return Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => DetailsPage(),
-      ),
-    );
+    Navigator.pushNamed(context, '/details');
   }
 }

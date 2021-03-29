@@ -21,9 +21,6 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  dio: ^3.0.10
-  flip_card: ^0.4.4
-  provider: ^4.3.3
   flutter:
     sdk: flutter
 
@@ -31,6 +28,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  dio: ^3.0.10
+  flip_card: ^0.4.4
+  provider: ^4.3.3
+  loader: ^0.4.0
 
 dev_dependencies:
   mockito: ^5.0.2
@@ -52,7 +53,7 @@ flutter:
   assets:
     - assets/images/default_card.jpg
     - assets/images/card_background.jpg
-    - assets/images/login_background.png
+    - assets/images/login_background.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

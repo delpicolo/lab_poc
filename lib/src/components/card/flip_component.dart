@@ -8,7 +8,7 @@ class FlipComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlipCard(
       direction: FlipDirection.HORIZONTAL,
-      speed: 1000,
+      speed: 700,
       onFlipDone: (status) {
         print(status);
       },
