@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_poc/src/components/profile_component.dart';
+import 'package:lab_poc/src/components/drawer/profile_component.dart';
 
 class MenuComponent extends StatelessWidget {
   @override
@@ -11,18 +11,19 @@ class MenuComponent extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Home'),
-            subtitle: Text('tela de início'),
+            subtitle: Text('Go to list of cards'),
             onTap: () {
-              print('home');
+              Navigator.of(context).pushReplacementNamed('/home');
+              print('Home');
             },
           ),
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Logout'),
-            subtitle: Text('finalizar sessão'),
+            subtitle: Text('End the session started'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed('/');
-              print('saiu');
+              print('Logged out');
             },
           )
         ],

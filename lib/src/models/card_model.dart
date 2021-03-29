@@ -6,7 +6,6 @@ class CardModel {
   String toughness;
   int multiverseid;
   String imageUrl;
-  List<String> printings;
   String id;
 
   CardModel({
@@ -17,7 +16,6 @@ class CardModel {
     this.toughness,
     this.multiverseid,
     this.imageUrl,
-    this.printings,
     this.id,
   });
 
@@ -28,22 +26,9 @@ class CardModel {
     power = json['power'] ?? '0';
     toughness = json['toughness'] ?? '0';
     multiverseid = int.parse(json['multiverseid'] ?? '0');
-    imageUrl = json['imageUrl'] ?? '';
-    printings = json['printings']?.cast<String>()?.toList() ?? [];
+    imageUrl = json['imageUrl'];
     id = json['id'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['type'] = this.type;
-    data['rarity'] = this.rarity;
-    data['power'] = this.power;
-    data['toughness'] = this.toughness;
-    data['multiverseid'] = this.multiverseid;
-    data['imageUrl'] = this.imageUrl;
-    data['printings'] = this.printings;
-    data['id'] = this.id;
-    return data;
-  }
+  bool imageIsEmpty() => this.imageUrl == null;
 }

@@ -12,6 +12,12 @@ class CardListModel with ChangeNotifier {
     notifyListeners();
   }
 
+  void reset() {
+    this.items = <CardModel>[];
+    page = 1;
+    notifyListeners();
+  }
+
   void select(String id) {
     selected = items.where((item) => item.id == id).first;
     notifyListeners();
